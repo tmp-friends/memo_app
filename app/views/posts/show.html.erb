@@ -1,0 +1,33 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <div class="posts-show-item-title">
+        <h3>タイトル</h3>
+        <p>
+            <%= @post.title %>
+        </p>
+      </div>
+      <div class="posts-show-item-contents">
+        <h3>ファクト</h3>
+        <p>
+            <%= @post.fact %>
+        </p>
+      </div>
+      <div class="posts-show-item-contents">
+        <h3>抽象化</h3>
+        <p>
+            <%= @post.abstraction %>
+        </p>
+      </div>
+      <div class="posts-show-item-contents">
+        <h3>転用</h3>
+        <p>
+            <%= @post.diversion %>
+        </p>
+      </div>
+      <div class="post-time">
+        <%= @post.created_at %>
+      </div>
+    </div>
+  </div>
+</div>
