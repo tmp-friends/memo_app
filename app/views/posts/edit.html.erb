@@ -1,9 +1,9 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">編集する</h1>
+    <%= form_tag("/posts/#{@post.id}/update") do %>
     <div class="form">
       <div class="form-body">
-      <%= form_tag("/posts/#{@post.id}/update") do %>
         <% @post.errors.full_messages.each do |message| %>
           <div class="form-error">
             <%= message %>
@@ -18,8 +18,8 @@
         <h3>転用</h3>
         <textarea name="diversion"><%= @post.diversion %></textarea>
         <input type="submit" value="保存">
-      <% end %>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
