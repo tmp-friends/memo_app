@@ -69,7 +69,7 @@
 
 .posts-show-item-title {
     font-size: 24px;
-    margin: 5px 0 20px 0;
+    margin: 20px 0 0 0;
 }
 
 .posts-show-item-contents {
@@ -79,6 +79,7 @@
 
 .posts-show-item h3 {
     font-size: 8px;
+    color: lightblue;
 }
 
 
@@ -117,10 +118,23 @@
     min-height: 140px;
     border: 1px solid rgb(216, 218, 223);
     resize: none;
-  }
+}
   
-  .posts-new textarea::-webkit-input-placeholder {
+.posts-new textarea::-webkit-input-placeholder {
     font-size: 16px;
     opacity: 0.5;
-  }
+}
+
+.posts-show-item .like-btn-unlike{
+    color: deeppink;
+}
+
+.posts-show-item .like-btn{
+    color: gainsboro;
+}
+
+.posts-show-item .fa {
+    font-size: 16px;
+    margin-right: 3px;
+}
   
