@@ -41,6 +41,11 @@
     border: none;
     cursor: pointer;
   }
+
+  form input[type="checkbox"] {
+    width: 20px;
+  }
+
   
   /* 共通レイアウト ================================ */
   body {

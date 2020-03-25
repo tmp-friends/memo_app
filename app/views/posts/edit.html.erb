@@ -17,7 +17,12 @@
         <textarea name="abstraction"><%= @post.abstraction %></textarea>
         <h3>転用</h3>
         <textarea name="diversion"><%= @post.diversion %></textarea>
-        <input type="submit" value="保存">
+        <% if @post.post_info != 1 %>
+          <i class="fa fa-key key"></i>
+        <% end %>
+        <%= check_box_tag :post_info %>
+        <%= label_tag :post_info, "公開する" %>
+      <input type="submit" value="保存">
       </div>
     </div>
     <% end %>

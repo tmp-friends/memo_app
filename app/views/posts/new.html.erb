@@ -17,7 +17,9 @@
           <textarea name="abstraction"></textarea>
           <h3>転用</h3>
           <textarea name="diversion"></textarea>
-          <input type="submit" value="投稿">
+          <%= check_box_tag :post_info %>
+          <%= label_tag :post_info, "公開する" %>
+          <input class="submit" type="submit" value="投稿">
       </div>
     </div>
     <% end %>

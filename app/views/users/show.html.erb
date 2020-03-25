@@ -15,17 +15,36 @@
     </ul>
 
     <% @user.posts.each do |post| %>
-      <div class="posts-index-item">
-        <div class="post-left">
-          <img src="<%= "/user_images/#{post.user.image_name}" %>">
-        </div>
-        <div class="post-right">
-          <div class="post-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+      <% if @user.id == @current_user.id %>
+        <div class="posts-index-item">
+          <div class="post-left">
+            <img src="<%= "/user_images/#{post.user.image_name}" %>">
           </div>
-          <%= link_to(post.title, "/posts/#{post.id}") %>
+          <div class="post-right">
+            <div class="post-user-name">
+              <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+            </div>
+            <%= link_to(post.title, "/posts/#{post.id}") %>
+            <% if post.post_info != 1 %>
+              <i class="fa fa-key key"></i>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <% if post.post_info == 1 %>
+          <div class="posts-index-item">
+            <div class="post-left">
+              <img src="<%= "/user_images/#{post.user.image_name}" %>">
+            </div>
+            <div class="post-right">
+              <div class="post-user-name">
+                <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+              </div>
+              <%= link_to(post.title, "/posts/#{post.id}") %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>

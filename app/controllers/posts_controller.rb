@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   before_action :authenticate_user
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+  before_action :post_info_correct_user, {only: [:show]}
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.where(post_info: 1).order(created_at: :desc) 
   end
 
   def show
@@ -22,6 +23,7 @@ class PostsController < ApplicationController
       fact: params[:fact], 
       abstraction: params[:abstraction], 
       diversion: params[:diversion],
+      post_info: params[:post_info],
       user_id: @current_user.id)
     if @post.save
       flash[:notice] = "メモを作成しました"
@@ -41,6 +43,7 @@ class PostsController < ApplicationController
     @post.fact = params[:fact]
     @post.abstraction = params[:abstraction]
     @post.diversion = params[:diversion]
+    @post.post_info = params[:post_info]
     if @post.save
       flash[:notice] = "メモを編集しました"
       redirect_to("/posts/index")
@@ -59,6 +62,14 @@ class PostsController < ApplicationController
   def ensure_correct_user
     @post = Post.find_by(id: params[:id])
     if @post.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts/index")
+    end
+  end
+
+  def post_info_correct_user
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id != @current_user.id && @post.post_info != 1
       flash[:notice] = "権限がありません"
       redirect_to("/posts/index")
     end
