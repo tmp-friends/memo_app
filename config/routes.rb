@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :blogs
   root 'home#top'
-  
+
   get '/' => "home#top"
 
   get 'posts/index' => "posts#index"
