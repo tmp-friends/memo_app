@@ -22,9 +22,3 @@ https://post-memo-app.herokuapp.com/
 * Ruby on Rails 5.2.4
 * SQLite3 (development)
 * pg (production)
-
-# Author
-
-* 寺井　友哉
-* 法政大学　理工学部　応用情報工学科
-* tomoya.terai.7e@stu.hosei.ac.jp
